@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="SplitViewStateTriggers.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SplitViewStateTriggers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="mySplitView.IsPaneOpen" Value="True"/>
+                        <Setter Target="mySplitView.DisplayMode" Value="Inline"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <SplitView x:Name="mySplitView" IsPaneOpen="False" DisplayMode="CompactInline">
+            <SplitView.Pane>
+                <TextBlock Text="Pane" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </SplitView.Pane>
+            <Grid>
+                <TextBlock Text="Content"  FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </SplitView>
+    </Grid>
+</Page>
